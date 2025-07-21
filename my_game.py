@@ -7,8 +7,6 @@ set_game_size(1600, 900)
 
 
 
-
-
 # WARNING: For advanced students/game requirements
 # Called once per frame (there are 60 frames per second)
 # DO NOT CHANGE FUNCTION NAME
