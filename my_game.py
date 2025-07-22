@@ -5,7 +5,8 @@ import game_engine
 set_game_size(1600, 900)
 #Below is where most of your code will be written
 
-print("test")
+
+print('test')
 
 
 # WARNING: For advanced students/game requirements
