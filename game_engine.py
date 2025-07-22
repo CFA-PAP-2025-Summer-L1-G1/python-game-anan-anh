@@ -55,6 +55,8 @@ def load_all_audio(curr_path):
     for file in audio_files:
         if os.path.isdir(curr_path + "/" + file):
             load_all_audio(curr_path + "/" + file)
+        elif file == ".DS_Store":
+            continue
         else:
             audio[file] = pygame.mixer.Sound(curr_path + "/" + file)
             audio[file].set_volume(VOLUME/100)
