@@ -43,6 +43,8 @@ def load_all_images(curr_path):
     for file in img_files:
         if os.path.isdir(curr_path + "/" + file):
             load_all_images(curr_path + "/" + file)
+        elif file == ".DS_Store":
+            continue
         else:
             imgs[file] = pygame.image.load(curr_path + "/" + file)
 
