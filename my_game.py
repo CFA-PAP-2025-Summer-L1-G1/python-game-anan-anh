@@ -1,5 +1,6 @@
 from game_funcs import *
 import game_engine
+import random
 
 #Set this first to decide the world dimensions
 set_game_size(1600, 900)
@@ -67,7 +68,6 @@ detect_collision(player, monster1, extinction)
 click(monster1, fight)
 
 
-    
 # WARNING: For advanced students/game requirements
 # Called once per frame (there are 60 frames per second)
 # DO NOT CHANGE FUNCTION NAME
