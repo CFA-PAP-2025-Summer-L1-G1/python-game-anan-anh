@@ -1,5 +1,6 @@
 from game_funcs import *
 import game_engine
+import random
 
 #Set this first to decide the world dimensions
 set_game_size(1600, 900)
@@ -67,7 +68,17 @@ detect_collision(player, monster1, extinction)
 click(monster1, fight)
 
 
+#fireballs?
+fireballs = []
+def spawn_fireballs(i):
+  image = add_image('fireball.png', 80)
+  fireballs.append(image)
+  place_element(image, 1200, random.choice([465, 465, 465]))
+  animate_x(image, 1200, -200, 2, False, 450)
+  detect_collision(player, image, extinction)
+set_interval(spawn_fireballs, 2.5, range(0, 10))
 
+    
 # WARNING: For advanced students/game requirements
 # Called once per frame (there are 60 frames per second)
 # DO NOT CHANGE FUNCTION NAME
