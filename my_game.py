@@ -25,8 +25,7 @@ place_element(m_score_text, 850, 200)
 #helper functions
 def extinction():
     global player_hp
-    player_hp = player_hp - 50
-    print_heading('-50!', 68)
+    player_hp = player_hp - 1
     update_text(p_score_text, 'Player HP: '+str(player_hp))
     if player_hp == 0 or monster_hp == 0:
         scoreboard()
@@ -34,15 +33,15 @@ def extinction():
 
 def fight(target):
     global monster_hp
-    monster_hp = monster_hp - 100
+    monster_hp = monster_hp - 30
     update_text(m_score_text, 'Monster HP: '+str(monster_hp))
     play_audio("player-haven-score.mp3")
-    if player_hp == 0 or monster_hp == 0:
+    if player_hp == 0 or monster_hp <= 0:
         scoreboard()
 
 def scoreboard():
     clear()
-    if monster_hp == 0:
+    if monster_hp <= 0:
         print_heading("You win", 100) 
         play_audio("win.mp3") 
     else:
@@ -68,14 +67,16 @@ detect_collision(player, monster1, extinction)
 click(monster1, fight)
 
 
-#fireballs?
+#fireballs
 fireballs = []
 def spawn_fireballs(i):
   image = add_image('fireball.png', 80)
   fireballs.append(image)
   place_element(image, 1200, random.choice([465, 465, 465]))
-  animate_x(image, 1200, -200, 2, False, 450)
+  animate_x(image, 900, -200, 2, False, 450)
   detect_collision(player, image, extinction)
+  if player_hp == 0 or monster_hp == 0:
+        scoreboard()
 set_interval(spawn_fireballs, 2.5, range(0, 10))
 
     
