@@ -30,13 +30,13 @@ def extinction():
     update_text(p_score_text, 'Player HP: '+str(player_hp))
     if player_hp == 0 or monster_hp == 0:
         scoreboard()
-    #play_audio("player-explosion.mp3")
+    play_audio("player-explosion.mp3")
 
 def fight(target):
     global monster_hp
     monster_hp = monster_hp - 100
     update_text(m_score_text, 'Monster HP: '+str(monster_hp))
-    #play_audio(player_score_sound)
+    play_audio("player-haven-score.mp3")
     if player_hp == 0 or monster_hp == 0:
         scoreboard()
 
@@ -44,10 +44,10 @@ def scoreboard():
     clear()
     if monster_hp == 0:
         print_heading("You win", 100) 
-        #play_audio(win) 
+        play_audio("win.mp3") 
     else:
         print_heading('Monster wins', 100)         
-        #play_audio(lose)
+        play_audio("lose.mp3")
 
 #initialize player and monsters
 player = add_image("player.png", 300)
